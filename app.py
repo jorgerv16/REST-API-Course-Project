@@ -25,7 +25,10 @@ api.add_resource(ItemList, '/items')
 api.add_resource(StoreList, '/stores')
 api.add_resource(UserRegister, '/register')
 
-
+uri = os.getenv('DATABASE_URL')
+if uri.startswith('postgres://'):
+    uri = uri.replace('postgres://', 'postgresql://', 1)
+    
 if __name__ == '__main__':
     db.init_app(app)
     app.run(port=5000, debug=True)
