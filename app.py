@@ -1,9 +1,4 @@
 import os
-import re
-
-uri = os.getenv('DATABASE_URL')
-if uri.startswith('postgres://'):
-    uri = uri.replace('postgres://', 'postgresql://', 1)
 
 from flask import Flask
 from flask_restful import Api
